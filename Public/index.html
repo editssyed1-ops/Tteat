@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Samosa Treat</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#140b05">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- samosa drawing (har jagah <use href="#samosa"> se reuse hota hai) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gSam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd37a"/><stop offset=".55" stop-color="#f2a33a"/><stop offset="1" stop-color="#c86a14"/>
+    </linearGradient>
+    <symbol id="samosa" viewBox="0 0 100 100">
+      <path d="M50 6 L95 88 Q98 95 90 95 L10 95 Q2 95 5 88 Z" fill="url(#gSam)" stroke="#8a4509" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M50 24 L81 84 L19 84 Z" fill="none" stroke="#fff3c9" stroke-opacity=".5" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <circle cx="44" cy="60" r="4" fill="#ffe7a8" fill-opacity=".75"/>
+      <circle cx="58" cy="72" r="3" fill="#ffe7a8" fill-opacity=".7"/>
+      <circle cx="52" cy="44" r="2.5" fill="#ffe7a8" fill-opacity=".7"/>
+      <path d="M14 90 L86 90" stroke="#8a4509" stroke-opacity=".35" stroke-width="2"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="bg-glow"></div>
+
+<header class="top">
+  <div class="logo" id="logo" title="Treat Time">
+    <svg class="ico"><use href="#samosa"/></svg><span><b>Treat</b>Time</span>
+  </div>
+  <span class="live" id="countChip">...</span>
+</header>
+
+<main>
+  <!-- HERO: 3D scene -->
+  <section class="hero">
+    <div class="scene" id="scene">
+      <div class="orbit">
+        <div class="card3d">
+          <img src="cr.jpg" alt="Hamara CR" class="cr-photo" width="900" height="1200">
+          <div class="shine"></div>
+          <div class="tag">Hamara CR &#128526;</div>
+        </div>
+        <svg class="float f1" style="--d:2;--r:-18deg"><use href="#samosa"/></svg>
+        <svg class="float f2" style="--d:1.4;--r:14deg"><use href="#samosa"/></svg>
+        <svg class="float f3" style="--d:2.6;--r:24deg"><use href="#samosa"/></svg>
+        <svg class="float f4" style="--d:1.1;--r:-30deg"><use href="#samosa"/></svg>
+        <svg class="float f5" style="--d:1.8;--r:8deg"><use href="#samosa"/></svg>
+      </div>
+    </div>
+
+    <div class="hero-copy">
+      <p class="kicker">&#127881; Class ke liye khushkhabri</p>
+      <h1 id="title">Samosa Treat</h1>
+      <p id="desc" class="lead">Loading...</p>
+      <div class="chips">
+        <span class="chip" id="priceChip">&#128176; ...</span>
+        <span class="chip">&#128683; Max 4 samosay</span>
+      </div>
+      <a href="#form" class="cta">Treat lo <svg class="ico"><use href="#samosa"/></svg></a>
+    </div>
+  </section>
+
+  <!-- WORLD RECORD -->
+  <section class="panel record" id="record">
+    <div class="ribbon">&#127942; WORLD RECORD*</div>
+    <div class="rec-grid">
+      <svg id="makeStage" class="stage" viewBox="0 0 220 170" aria-label="Samosa 0.5 second mein ban raha hai">
+        <ellipse cx="110" cy="146" rx="86" ry="12" fill="#000" opacity=".3"/>
+        <ellipse cx="110" cy="134" rx="80" ry="16" fill="#f4efe6"/>
+        <ellipse cx="110" cy="132" rx="64" ry="10" fill="#e4dccb"/>
+        <circle class="dough" cx="110" cy="88" r="44" fill="#f6dca4" stroke="#d9b36a" stroke-width="3"/>
+        <g class="fill">
+          <circle cx="96" cy="84" r="6" fill="#e9b949"/><circle cx="116" cy="78" r="5" fill="#7bbf5e"/>
+          <circle cx="122" cy="96" r="6" fill="#e9b949"/><circle cx="100" cy="100" r="5" fill="#d8742f"/>
+        </g>
+        <path class="fold" d="M66 88 A44 44 0 0 1 154 88 Z" fill="#f2cf8a" stroke="#d9b36a" stroke-width="3"/>
+        <g class="made"><use href="#samosa" x="60" y="38" width="100" height="100"/></g>
+        <g class="spark" font-size="20"><text x="40" y="50">&#10024;</text><text x="165" y="64">&#10024;</text><text x="150" y="30">&#128293;</text></g>
+      </svg>
+      <div class="rec-copy">
+        <div class="clock" id="clock">0.50 s</div>
+        <h2>Samosa ready sirf 0.5 second mein!</h2>
+        <p class="muted">Aate ki loi se garma garam samosa, palak jhapakte hi. Dekhne ke liye dobara chalao.</p>
+        <button type="button" class="ghost" id="replay">&#9654; Dobara chalao</button>
+        <p class="fine">*Hamare apne class rules ke mutabiq record. &#128516;</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SURVEY FORM -->
+  <section class="panel" id="formWrap">
+    <form id="form" novalidate autocomplete="off">
+      <h2>Treat Survey &#128221;</h2>
+      <p class="muted">Pehle batao, kya aap treat lena chahte hain?</p>
+
+      <div class="choice">
+        <button type="button" class="opt yes" data-v="1">
+          <span class="big"><svg class="ico xl"><use href="#samosa"/></svg></span>
+          <b>Haan, chahiye!</b><small>Samosa bhej do &#128523;</small>
+        </button>
+        <button type="button" class="opt no" data-v="0">
+          <span class="big">&#128581;</span>
+          <b>Nahi, shukriya</b><small>Main skip karta/karti hoon</small>
+        </button>
+      </div>
+
+      <div id="details" class="hidden">
+        <label class="q">
+          <span>&#128100; Aapka naam</span>
+          <input id="name" type="text" maxlength="60" placeholder="Poora naam likho">
+        </label>
+
+        <div class="q">
+          <span>&#127380; Roll no</span>
+          <div class="roll"><i>26-ARID-</i><input id="roll" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+        </div>
+
+        <div class="q hidden" id="qtyBlock">
+          <span>&#129351; Kitne samosay chahiye? <em>(max 4)</em></span>
+          <div class="picker" id="picker"></div>
+          <p class="qty-text"><b id="qtyText">1 samosa</b></p>
+          <div class="billbox" id="billBox"></div>
+        </div>
+
+        <button type="submit" class="submit" id="submitBtn">Submit karo &#128640;</button>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+
+    <div id="closed" class="hidden center">
+      <div class="big-emoji">&#128274;</div>
+      <h2>Survey band ho chuka hai</h2>
+      <p class="muted">Ab naye response nahi liye ja rahe.</p>
+    </div>
+
+    <div id="done" class="hidden center">
+      <div class="big-emoji">&#9989;</div>
+      <h2 id="doneTitle">Shukriya!</h2>
+      <div class="ticket" id="ticket"></div>
+      <button type="button" class="ghost" id="another">Is phone se kisi aur dost ka response</button>
+    </div>
+  </section>
+</main>
+
+<footer>Banaya gaya class ke liye &#10084;&#65039; &middot; Samosay garam hi achay lagte hain</footer>
+<div id="confetti" aria-hidden="true"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manage</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#140b05">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="admin">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gSam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd37a"/><stop offset=".55" stop-color="#f2a33a"/><stop offset="1" stop-color="#c86a14"/>
+    </linearGradient>
+    <symbol id="samosa" viewBox="0 0 100 100">
+      <path d="M50 6 L95 88 Q98 95 90 95 L10 95 Q2 95 5 88 Z" fill="url(#gSam)" stroke="#8a4509" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M50 24 L81 84 L19 84 Z" fill="none" stroke="#fff3c9" stroke-opacity=".5" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <circle cx="44" cy="60" r="4" fill="#ffe7a8" fill-opacity=".75"/><circle cx="58" cy="72" r="3" fill="#ffe7a8" fill-opacity=".7"/>
+    </symbol>
+  </defs>
+</svg>
+<div class="bg-glow"></div>
+
+<header class="top">
+  <div class="logo"><svg class="ico"><use href="#samosa"/></svg><span><b>Treat</b>Admin</span></div>
+  <button class="btn alt hidden" id="logout">Logout</button>
+</header>
+
+<main>
+  <!-- LOGIN -->
+  <section class="panel login-wrap" id="loginBox">
+    <h2>Admin login &#128274;</h2>
+    <p class="muted" id="firstNote"></p>
+    <label class="q"><span>Admin ID</span><input id="aid" type="text" autocomplete="username" placeholder="admin@..."></label>
+    <label class="q"><span>Password</span><input id="apw" type="password" autocomplete="current-password" placeholder="Password"></label>
+    <button class="submit" id="loginBtn">Login</button>
+    <p class="err" id="loginErr"></p>
+  </section>
+
+  <!-- DASHBOARD -->
+  <div id="dash" class="hidden">
+    <div class="stats">
+      <div class="stat"><div class="n" data-k="people">0</div><small>Total response</small></div>
+      <div class="stat"><div class="n" data-k="yes">0</div><small>Treat chahiye</small></div>
+      <div class="stat"><div class="n" data-k="no">0</div><small>Nahi chahiye</small></div>
+      <div class="stat"><div class="n" data-k="sam">0</div><small>Total samosay</small></div>
+      <div class="stat"><div class="n" data-k="bill">0</div><small>Total bill (Rs)</small></div>
+    </div>
+
+    <section class="panel" id="settingsPanel">
+      <h2>&#128176; Fee / Price aur Survey settings</h2>
+      <p class="muted">Ek samosa ki price likho, bill foran niche table mein calculate ho jaye ga.</p>
+      <div class="grid2">
+        <label class="q"><span>Ek samosa ki price (Rs)</span><input id="price" type="number" min="0" max="10000" step="1" inputmode="decimal"></label>
+        <label class="q"><span>Page ka title</span><input id="stitle" type="text" maxlength="80"></label>
+      </div>
+      <label class="q"><span>Treat ki chhoti description</span><textarea id="sdesc" maxlength="400"></textarea></label>
+      <label class="switch"><input type="checkbox" id="sopen"> Survey khula rakho (band karne par naye response nahi aayenge)</label>
+      <div class="toolbar"><button class="btn" id="saveSettings">Save karo</button></div>
+      <p class="okmsg" id="saveMsg"></p>
+    </section>
+
+    <section class="panel" id="billPanel">
+      <h2>&#129534; Bill aur responses</h2>
+      <div class="toolbar no-print">
+        <input id="search" type="search" placeholder="Naam ya roll no dhoondo...">
+        <button class="btn" id="pdfBtn">&#128196; PDF download</button>
+        <button class="btn alt" id="printBtn">&#128424; Print</button>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>#</th><th>Roll no</th><th>Naam</th><th>Treat</th><th>Samosay</th><th>Bill</th><th class="no-print"></th></tr></thead>
+          <tbody id="rows"></tbody>
+          <tfoot><tr><td colspan="4">Total</td><td id="tSam">0</td><td id="tBill">Rs 0</td><td class="no-print"></td></tr></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel no-print" id="pwPanel">
+      <h2>&#128273; Password badlo</h2>
+      <div class="toolbar"><input id="newpw" type="password" placeholder="Naya password (kam az kam 4)" autocomplete="new-password"><button class="btn alt" id="pwBtn">Badlo</button></div>
+      <p class="okmsg" id="pwMsg"></p>
+    </section>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js" defer></script>
+<script src="manage.js" defer></script>
+</body>
+</html>
